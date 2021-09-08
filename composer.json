@@ -1,0 +1,18 @@
+{
+    "require": {
+        "phroute/phroute": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/",
+            "config\\":"config/",
+            "core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "arbast",
+            "email": "ing.arasay@gmail.com"
+        }
+    ]
+}
