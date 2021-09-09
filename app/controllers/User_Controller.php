@@ -1,10 +1,11 @@
 <?php
 namespace app\controllers;
 
-use app\models\{User,Session,SessionUser};
 use app\Redirect;
-use config\{ServiceSession};
+use app\Validator;
 use app\controllers\{Session_Controller};
+use app\models\{User,Session,SessionUser};
+use config\{ServiceSession};
 use core\{BaseController};
 
 	class User_Controller extends BaseController
@@ -56,6 +57,12 @@ use core\{BaseController};
 		*/
 
 	  public function login(){
+			Validator::validateOrRedirect($_POST,
+					[
+							"required" => ["txt-input", "password","action"],
+							"email" => "txt-input",
+					],
+					"/login");
 			$this->resetMessage();
 	    $username=$_POST["txt-input"];
 	    $password=$_POST["password"];
